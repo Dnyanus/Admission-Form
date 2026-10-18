@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f3">
+  <meta name="description" content="Apply for B.Com second-year admission.">
+  <title>B.Com Second Year Admission</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="supabase-config.js"></script>
+  <script src="admission-db.js"></script>
+  <script defer src="second-year.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="B.Com Admissions home">
+      <span class="brand-mark" aria-hidden="true">B<span>.</span></span>
+      <span class="brand-name">CAMPUS<span>ADMISSIONS</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Admission forms">
+      <a href="index.html">First year</a>
+      <a href="bcom-2nd-year-admission.html" aria-current="page">Second year</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="welcome" aria-labelledby="page-title">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span></span> CONTINUE YOUR B.COM JOURNEY</p>
+        <h1 id="page-title">B.Com Second Year<br><span>Admission</span></h1>
+        <p class="welcome-text">Share a few details so the college can review your second-year admission request.</p>
+        <div class="welcome-meta"><span><span class="meta-icon" aria-hidden="true">&#10003;</span> Short application</span><span><span class="meta-icon" aria-hidden="true">&#10003;</span> No documents required here</span></div>
+      </div>
+      <div class="welcome-art" aria-hidden="true"><div class="art-sun"></div><div class="art-card card-back"><span></span><span></span><span></span></div><div class="art-card card-front"><div class="book-icon"><i></i><i></i></div><span class="art-line line-one"></span><span class="art-line line-two"></span><span class="art-line line-three"></span><span class="art-dot"></span></div><div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✳</div><div class="art-caption">Keep moving<br><strong>forward.</strong></div></div>
+    </section>
+
+    <section class="form-card" aria-labelledby="form-heading">
+      <div class="form-heading-row">
+        <div><p class="eyebrow form-eyebrow">SECOND YEAR APPLICATION</p><h2 id="form-heading">Student details</h2><p class="form-intro">Fields marked <span class="required-star">*</span> are required.</p></div>
+      </div>
+      <form id="second-year-form" novalidate>
+        <section class="form-section" aria-labelledby="student-title">
+          <div class="section-heading"><span class="section-number">01</span><div><h3 id="student-title">Your details</h3><p>Use the same name and contact details as your college records.</p></div></div>
+          <div class="field-grid two-col">
+            <div class="field"><label for="student-name">Full name <span class="required-star">*</span></label><input id="student-name" name="applicantName" autocomplete="name" required minlength="2" maxlength="120"></div>
+            <div class="field"><label for="student-email">Email address <span class="required-star">*</span></label><input id="student-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="field"><label for="student-phone">Mobile number <span class="required-star">*</span></label><div class="phone-input"><span aria-hidden="true">+91</span><input id="student-phone" name="phone" type="tel" autocomplete="tel-national" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="98765 43210" required></div><small class="field-hint">Enter a 10-digit Indian mobile number.</small></div>
+            <div class="field"><label for="academic-year">Academic year <span class="required-star">*</span></label><select id="academic-year" name="academicYear" required><option value="" selected disabled>Select academic year</option></select></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="college-title">
+          <div class="section-heading"><span class="section-number">02</span><div><h3 id="college-title">Current B.Com study</h3><p>Basic information to help match your existing student record.</p></div></div>
+          <div class="field-grid two-col">
+            <div class="field full-width"><label for="college-name">Current college name <span class="required-star">*</span></label><input id="college-name" name="collegeName" autocomplete="organization" required maxlength="160"></div>
+            <div class="field"><label for="roll-number">Student / roll number <span class="required-star">*</span></label><input id="roll-number" name="rollNumber" autocomplete="off" required maxlength="40"></div>
+            <div class="field"><label for="semester">Current semester <span class="required-star">*</span></label><select id="semester" name="currentSemester" required><option value="" selected disabled>Select semester</option><option value="3">Semester 3</option><option value="4">Semester 4</option></select><small class="field-hint">Second year usually covers semesters 3 and 4.</small></div>
+            <div class="field"><label for="previous-percentage">Last completed year percentage <span class="required-star">*</span></label><div class="suffix-input"><input id="previous-percentage" name="previousYearPercentage" type="number" inputmode="decimal" min="0" max="100" step="0.01" placeholder="e.g. 72.5" required><span>%</span></div></div>
+            <div class="field"><label for="result-status">Result status <span class="required-star">*</span></label><select id="result-status" name="resultStatus" required><option value="passed">Result declared</option><option value="awaited">Result awaited</option></select></div>
+          </div>
+        </section>
+
+        <section class="declaration" aria-labelledby="declaration-title">
+          <div class="section-heading declaration-heading"><span class="section-number">03</span><div><h3 id="declaration-title">Declaration</h3><p>Please confirm before submitting.</p></div></div>
+          <label class="check-row"><input type="checkbox" name="informationAccurate" required><span>I confirm these details are accurate and may be used to review my admission request. <span class="required-star">*</span></span></label>
+        </section>
+
+        <div class="form-footer"><p><span class="required-star">*</span> Required fields must be completed.</p><button class="submit-button" type="submit">Submit second-year application <span aria-hidden="true">&#8594;</span></button></div>
+        <div class="form-message" id="form-message" role="status" tabindex="-1" hidden></div>
+      </form>
+    </section>
+    <footer class="page-footer"><span>Made for your next big step.</span><a href="index.html">View first-year admission form</a></footer>
+  </main>
+</body>
+</html>
+
